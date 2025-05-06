@@ -13,6 +13,8 @@
 ################################
 #
 #
+set -x
+
 #AWS S3
 #AWS EC2
 #AWS Lambda
@@ -20,18 +22,23 @@
 #
 #
 #list s3 buckets
-aws s3 ls
+#echo " Print list of s3 bcukets"
+#aws s3 ls
 #
 #
-#list EC2 instances
-aws ec2 describe-instances
+#list EC2 Instances
+echo " Print list of ec2 instances"
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
+#aws ec2 describe-instances
 #
 #
-#list lmda
-aws lambda list-functions
+#list lambda
+#echo "Print list of lambda functions"
+#aws lambda list-functions
 
 #list IAM Users
-aws iam list-users
+#echo "Print list of iam users"
+#aws iam list-users
 
 
 
